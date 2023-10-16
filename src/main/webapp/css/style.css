@@ -94,15 +94,14 @@ input[type="radio"] {
     background-color: var(--color-button-active);
 }
 
-table:not(.buttons) {
+#table{
     margin-left: 4%;
 }
 
-table:not(.buttons) th,td {
+#table th,td {
     border: 3px dashed #95918C;
     text-align: center;
 }
-
 caption {
     font-size: 25px;
     margin: 1%;

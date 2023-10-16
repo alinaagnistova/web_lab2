@@ -13,29 +13,22 @@ document.getElementById('valForm').addEventListener('submit', function (e) {
 
 
 function send(x, y, r) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'php/base.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            let response = JSON.parse(xhr.responseText);
-            if (response.error) {
-                let messageEl = document.querySelector("#message");
-                messageEl.textContent = response.error;
-            } else {
-                let table = document.querySelector('#table');
-                let newRow = table.insertRow(1);
-                newRow.innerHTML =
-                    '<td>' + response.x + '</td>' +
-                    '<td>' + response.y + '</td>' +
-                    '<td>' + response.r + '</td>' +
-                    '<td>' + response.result + '</td>' +
-                    '<td>' + response.time + '</td>' +
-                    '<td>' + response.script_time + '</td>';
+    $.ajax({
+            type: "GET",
+            url: "/ControllerServlet",
+            async: false,
+            data: { "x": x, "y": y, "r": r },
+            success: function(data) {
+                    window.location.replace("./result.jsp")
+            },error: function (xhr, textStatus, err) {
+                console.log("readyState: " + xhr.readyState + "\n"+
+                    "responseText: " + xhr.responseText + "\n"+
+                    "status: " + xhr.status + "\n"+
+                    "text status: " + textStatus + "\n" +
+                    "error: " + err);
             }
         }
-    };
-    xhr.send('x=' + x + '&y=' + y + '&r=' + r);
+    )
 }
 
 function showError(element,message) {
@@ -94,4 +87,7 @@ function validate(x, y, r) {
 
 function resetForm(){
     document.getElementById("valForm").reset();
+}
+function redirectToIndex() {
+    window.location.href = "index.jsp";
 }

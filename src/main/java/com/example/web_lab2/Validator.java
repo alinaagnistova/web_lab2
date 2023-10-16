@@ -1,9 +1,8 @@
 package com.example.web_lab2;
-import java.lang.Math;
 
 import static java.lang.Math.*;
 
-public class Validator implements IVallidator{
+public class Validator implements IValidator {
     public Validator(float x, float y, float r) {
         this.x = x;
         this.y = y;
@@ -15,9 +14,6 @@ public class Validator implements IVallidator{
     float r;
     @Override
     public boolean validate() {
-//        if (!(x instanceof Float && y instanceof Float && r instanceof Float)) {
-//            return false;
-//        } else {
             if (!(x >= -2 && x <= 2 && String.valueOf(x).length()<= 10)) {
                 return false;
             }

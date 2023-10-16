@@ -8,29 +8,21 @@ import java.io.IOException;
 
 @WebServlet(name = "ControllerServlet", value = "/ControllerServlet")
 public class ControllerServlet extends HttpServlet {
+    private Table table;
+    @Override
+    public void init(){
+        this.table = new Table();
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String x = request.getParameter("x");
-        String y = request.getParameter("y");
-        String r = request.getParameter("r");
-        if(x != null && y != null && r != null) {
-            HttpSession session = request.getSession();
-            BeanStorage beanStorage = (BeanStorage) session.getAttribute("beanStorage");
-            if (beanStorage == null){
-                beanStorage = new BeanStorage();
-                session.setAttribute("beanStorage", beanStorage);
-            }
-            request.setAttribute("beanStorage", beanStorage);
-            request.getRequestDispatcher("/check").forward(request, response);
-        } else {
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+        try{
+            request.setAttribute("table", table);
+            getServletContext().getRequestDispatcher("/check").forward(request, response);
+        } catch (Exception e) {
+            getServletContext().setAttribute("error", e.getMessage());
+            request.getServletContext().getRequestDispatcher("/error.jsp").forward(request, response);
         }
     }
 
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 
 }

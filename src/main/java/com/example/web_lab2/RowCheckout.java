@@ -1,6 +1,12 @@
 package com.example.web_lab2;
-//bean element
-public class RowCheckout {
+
+import java.beans.JavaBean;
+import java.io.Serializable;
+
+@JavaBean
+public class RowCheckout implements Serializable {
+    private static final long serialVersionUID = 2L;
+
     private float x;
     private float y;
     private float r;

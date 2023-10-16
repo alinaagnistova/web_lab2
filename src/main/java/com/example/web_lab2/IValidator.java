@@ -1,6 +1,6 @@
 package com.example.web_lab2;
 
-public interface IVallidator {
+public interface IValidator {
     boolean validate();
     boolean rectangle();
     boolean triangle();
