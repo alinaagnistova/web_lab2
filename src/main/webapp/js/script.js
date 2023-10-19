@@ -1,16 +1,14 @@
 document.getElementById('valForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    let x = document.querySelectorAll('input[type="radio"]:checked')[0];
+    let x = document.getElementById('x');
     let y = document.getElementById('y');
-    let r = document.getElementById('r');
+    let r = document.querySelectorAll('input[type="radio"]:checked')[0];
+
     if (validate(x, y, r)) {
         send(x.value, y.value, r.value);
     }
 
 });
-
-
-
 
 function send(x, y, r) {
     $.ajax({
@@ -46,40 +44,28 @@ function showError(element,message) {
 
 function validate(x, y, r) {
     let replaceDot = val => val.replace(',', '.');
-    let y1 = replaceDot(y.value);
-    let r1 = replaceDot(r.value);
-    if (x == null){
-        showError(x,"Необходимо выбрать значение координаты X:(");
+    let x1 = replaceDot(x.value);
+    if (r == null){
+        showError(r,"Необходимо выбрать значение R:(");
+        return false;
+    }
+    if (y == null){
+        showError(y,"Необходимо выбрать значение Y:(");
         return false;
     }
 
-    if (y1 === "") {
-        showError(y,"Необходимо указать значение координаты Y:(");
+    if (x1 === "") {
+        showError(x,"Необходимо указать значение Y:(");
         return false;
     }
 
-    if (isNaN(y1)) {
-        showError(y,"Нет, так не надо. Надо вот так: Y - число");
+    if (isNaN(x1)) {
+        showError(x,"Нет, так не надо. Надо вот так: X - число");
         return false;
     }
 
-    if (y1 < -5 || y1 > 5) {
-        showError(y,"Y может быть любым числом из {-5;5}");
-        return false;
-    }
-
-    if (r1 === "") {
-        showError(y,"Необходимо указать значение радиуса:(");
-        return false;
-    }
-
-    if (isNaN(r1)) {
-        showError(r,"Нет, так не надо. Надо вот так: R - число");
-        return false;
-    }
-
-    if (r1 < 1 || r1 > 4) {
-        showError(r,"R может быть любым числом из {1;4}");
+    if (x1 < -3 || x1 > 3) {
+        showError(x,"X может быть любым числом из {-3;3}");
         return false;
     }
     return true;

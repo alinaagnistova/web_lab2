@@ -1,4 +1,4 @@
-package com.example.web_lab2;
+package com.example.web_lab2.beans;
 
 import java.beans.JavaBean;
 import java.io.Serializable;

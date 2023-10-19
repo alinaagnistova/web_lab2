@@ -1,4 +1,4 @@
-package com.example.web_lab2;
+package com.example.web_lab2.beans;
 
 import java.beans.JavaBean;
 import java.io.Serializable;
@@ -17,7 +17,7 @@ public class Table implements Serializable {
     public Table(List<RowCheckout> table) {
         this.table = table;
     }
-    void addRow(RowCheckout row){
+    public void addRow(RowCheckout row){
         table.add(row);
     }
 

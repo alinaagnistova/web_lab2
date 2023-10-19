@@ -1,5 +1,9 @@
-package com.example.web_lab2;
+package com.example.web_lab2.servlets;
 
+import com.example.web_lab2.validation.IValidator;
+import com.example.web_lab2.validation.Validator;
+import com.example.web_lab2.beans.RowCheckout;
+import com.example.web_lab2.beans.Table;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

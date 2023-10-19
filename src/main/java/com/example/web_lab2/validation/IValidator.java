@@ -1,4 +1,4 @@
-package com.example.web_lab2;
+package com.example.web_lab2.validation;
 
 public interface IValidator {
     boolean validate();
