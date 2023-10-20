@@ -14,18 +14,18 @@ public class Validator implements IValidator {
     float r;
     @Override
     public boolean validate() {
-            if (!(x >= -2 && x <= 2 && String.valueOf(x).length()<= 10)) {
+            if (!(x >= -3 && x <= 3 && String.valueOf(x).length()<= 10)) {
                 return false;
             }
-            if (!(y >= -5 && y <= 5 && String.valueOf(y).length() <= 10)) {
+            if (!(y >= -5 && y <= 3 && String.valueOf(y).length() <= 10)) {
                 return false;
             }
-            if (!(r >= 1 && r <= 4 && String.valueOf(r).length() <= 10)) {
+            if (!(r >= 1 && r <= 5 && String.valueOf(r).length() <= 10)) {
                 return false;
             }
             return true;
         }
-//}
+
 
     @Override
     public boolean rectangle() {

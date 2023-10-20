@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: agnis
-  Date: 03.10.2023
-  Time: 23:56
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -32,41 +25,37 @@
 </div>
 <div class="form-block">
     <div class="window">
-        <!--        координатная плосксть 153-164-->
-        <svg width="320" height="320">
-            <line x1="0" y1="160" x2="320" y2="160" stroke="black" stroke-width="1.6"/>
-            <line x1="160" y1="0" x2="160" y2="320" stroke="black" stroke-width="1.6"/>
+        <svg width="320" height="320" id="areas">
+            <line x1="0" y1="160" x2="320" y2="160" stroke-width="1.6"/>
+            <line x1="160" y1="0" x2="160" y2="320" stroke-width="1.6"/>
 
-            <polygon points="320,160 312,156 312,164" fill="black"/>
-            <polygon points="160,0 156,8 164,8" fill="black"/>
+            <polygon id="1" points="320,160 312,156 312,164"/>
+            <polygon id="1"points="160,0 156,8 164,8"/>
 
-            <line x1="40" y1="156" x2="40" y2="164" stroke="black" stroke-width="1.6"/>
-            <line x1="120" y1="156" x2="120" y2="164" stroke="black" stroke-width="1.6"/>
-            <line x1="200" y1="156" x2="200" y2="164" stroke="black" stroke-width="1.6"/>
-            <line x1="280" y1="156" x2="280" y2="164" stroke="black" stroke-width="1.6"/>
-            <line x1="360" y1="156" x2="360" y2="164" stroke="black" stroke-width="1.6"/>
+            <line x1="40" y1="156" x2="40" y2="164" stroke-width="1.6"/>
+            <line x1="120" y1="156" x2="120" y2="164" stroke-width="1.6"/>
+            <line x1="200" y1="156" x2="200" y2="164" stroke-width="1.6"/>
+            <line x1="280" y1="156" x2="280" y2="164" stroke-width="1.6"/>
+            <line x1="360" y1="156" x2="360" y2="164" stroke-width="1.6"/>
 
-            <!--            подпись оси ОХ-->
-            <text x="35" y="152" font-size="9.6">-R</text>
-            <text x="115" y="152" font-size="9.6">-R/2</text>
-            <text x="195" y="152" font-size="9.6">R/2</text>
-            <text x="275" y="152" font-size="9.6">R</text>
-            <line x1="156" y1="40" x2="164" y2="40" stroke="black" stroke-width="1.6"/>
-            <line x1="156" y1="120" x2="164" y2="120" stroke="black" stroke-width="1.6"/>
-            <line x1="156" y1="200" x2="164" y2="200" stroke="black" stroke-width="1.6"/>
-            <line x1="156" y1="280" x2="164" y2="280" stroke="black" stroke-width="1.6"/>
-            <line x1="156" y1="360" x2="164" y2="360" stroke="black" stroke-width="1.6"/>
-
-            <text x="144" y="44" font-size="9.6">R</text>
-            <text x="144" y="124" font-size="9.6">R/2</text>
-            <text x="144" y="204" font-size="9.6">-R/2</text>
-            <text x="144" y="284" font-size="9.6">-R</text>
-
-            <path d="M160,120 A40,40 0 0,1 200,160 L160,160 Z" fill="rgb(51,153,255)" stroke="black"
+            <text id="capt" x="35" y="152">-R</text>
+            <text id="capt" x="115" y="152">-R/2</text>
+            <text id="capt" x="200" y="152">R/2</text>
+            <text id="capt" x="275" y="152">R</text>
+            <line x1="156" y1="40" x2="164" y2="40" stroke-width="1.6"/>
+            <line x1="156" y1="120" x2="164" y2="120" stroke-width="1.6"/>
+            <line x1="156" y1="200" x2="164" y2="200" stroke-width="1.6"/>
+            <line x1="156" y1="280" x2="164" y2="280" stroke-width="1.6"/>
+            <line x1="156" y1="360" x2="164" y2="360" stroke-width="1.6"/>
+            <text x="144" y="44" id="capt">R</text>
+            <text x="141" y="124" id="capt">R/2</text>
+            <text x="144" y="204" id="capt">-R/2</text>
+            <text x="144" y="284" id="capt">-R</text>
+            <path id="circle" d="M160,120 A40,40 0 0,1 200,160 L160,160 Z" fill="rgb(51,153,255)"
                   stroke-width="1.6"/>
-            <polygon points="160,280 160,160 40,160" fill="rgb(51,153,255)" stroke="black"
+            <polygon id="triangle" points="160,280 160,160 40,160" fill="rgb(51,153,255)"
                      stroke-width="1.6"></polygon>
-            <polygon points="280,160 160,160 160,280 280,280" fill="rgb(51,153,255)" stroke="black"
+            <polygon id="square" points="280,160 160,160 160,280 280,280" fill="rgb(51,153,255)" stroke="black"
                      stroke-width="1.6"></polygon>
         </svg>
     </div>
@@ -133,6 +122,6 @@
 </body>
 <script src="js/script.js"></script>
 <script src="js/themeToggle.js"></script>
-<script src="js/interactive.js"></script>
+<script src="js/svgInteractive.js"></script>
 
 </html>
