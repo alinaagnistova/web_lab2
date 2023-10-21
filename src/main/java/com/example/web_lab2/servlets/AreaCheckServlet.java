@@ -22,16 +22,23 @@ public class AreaCheckServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            float x = Float.parseFloat(request.getParameter("x"));
-            float y = Float.parseFloat(request.getParameter("y"));
-            float r = Float.parseFloat(request.getParameter("r"));
+            String strX = request.getParameter("x");
+            String strY = request.getParameter("y");
+            String strR = request.getParameter("r");
+            if (!(strX.length() <= 10 && strY.length() <= 10 && strR.length() <= 10)) {
+                return;
+            }
+            float x = Float.parseFloat(strX);
+            float y = Float.parseFloat(strY);
+            float r = Float.parseFloat(strR);
+
             Validator validator = new Validator(x, y, r);
             long startTime = System.nanoTime();
             if (validator.validate()) {
-                String result = checkout(x,y,r) ? "ПРАВДА" : "ЛОЖЬ";
+                String result = checkout(x, y, r) ? "ПРАВДА" : "ЛОЖЬ";
                 LocalTime time = LocalTime.now();
                 String currentTime = time.format(formatter);
-                String scriptTime = String.format("%.2f", (double) (System.nanoTime() - startTime)*0.0001);
+                String scriptTime = String.format("%.2f", (double) (System.nanoTime() - startTime) * 0.0001);
                 RowCheckout row = new RowCheckout(x, y, r, result, currentTime, scriptTime);
                 Table table = (Table) request.getAttribute("table");
                 table.addRow(row);
@@ -44,8 +51,9 @@ public class AreaCheckServlet extends HttpServlet {
         }
 
     }
+
     public static boolean checkout(float x, float y, float r) {
-        return (x >= 0 && x <= r && y >= 0 && y <= r)|| (x <= 0 && x >= -r && y <= 0 && y >= -r)|| (x >= 0 && y >= 0 && pow(x, 2) + pow(y, 2) <= pow(r / 2, 2));
+        return (x >= 0 && x <= r && y >= 0 && y <= r) || (x <= 0 && x >= -r && y <= 0 && y >= -r) || (x >= 0 && y >= 0 && pow(x, 2) + pow(y, 2) <= pow(r / 2, 2));
     }
 
 }

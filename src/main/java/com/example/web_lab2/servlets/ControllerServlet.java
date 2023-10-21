@@ -10,13 +10,15 @@ import java.io.IOException;
 @WebServlet(name = "ControllerServlet", value = "/ControllerServlet")
 public class ControllerServlet extends HttpServlet {
     private Table table;
+
     @Override
-    public void init(){
+    public void init() {
         this.table = new Table();
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try{
+        try {
             request.setAttribute("table", table);
             getServletContext().getRequestDispatcher("/check").forward(request, response);
         } catch (Exception e) {

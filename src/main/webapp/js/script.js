@@ -1,4 +1,3 @@
-
 document.getElementById('valForm').addEventListener('submit', function (e) {
     e.preventDefault();
     let x = document.getElementById('x');
@@ -16,13 +15,13 @@ function send(x, y, r) {
             type: "GET",
             url: "/ControllerServlet",
             async: false,
-            data: { "x": x, "y": y, "r": r },
-            success: function(data) {
-                    window.location.replace("./result.jsp")
-            },error: function (xhr, textStatus, err) {
-                showError(document.getElementById('buttons-table'), "readyState: " + xhr.readyState + "\n"+
-                    "responseText: " + xhr.responseText + "\n"+
-                    "status: " + xhr.status + "\n"+
+            data: {"x": x, "y": y, "r": r},
+            success: function (data) {
+                window.location.replace("./result.jsp")
+            }, error: function (xhr, textStatus, err) {
+                showError(document.getElementById('buttons-table'), "readyState: " + xhr.readyState + "\n" +
+                    "responseText: " + xhr.responseText + "\n" +
+                    "status: " + xhr.status + "\n" +
                     "text status: " + textStatus + "\n" +
                     "error: " + err);
             }
@@ -30,7 +29,7 @@ function send(x, y, r) {
     )
 }
 
-function showError(element,message) {
+function showError(element, message) {
     const errorElement = document.createElement('div');
     errorElement.classList.add('error-message');
     errorElement.textContent = message;
@@ -46,33 +45,33 @@ function showError(element,message) {
 function validate(x, y, r) {
     let replaceDot = val => val.replace(',', '.');
     let x1 = replaceDot(x.value);
-    if (r == null){
-        showError(r,"Необходимо выбрать значение R:(");
+    if (r == null) {
+        showError(r, "Необходимо выбрать значение R:(");
         return false;
     }
-    if (y == null){
-        showError(y,"Необходимо выбрать значение Y:(");
+    if (y == null) {
+        showError(y, "Необходимо выбрать значение Y:(");
         return false;
     }
 
     if (x1 === "") {
-        showError(x,"Необходимо указать значение Y:(");
+        showError(x, "Необходимо указать значение Y:(");
         return false;
     }
 
     if (isNaN(x1)) {
-        showError(x,"Нет, так не надо. Надо вот так: X - число");
+        showError(x, "Нет, так не надо. Надо вот так: X - число");
         return false;
     }
 
     if (x1 < MIN_X || x1 > MAX_XY) {
-        showError(x,"X может быть любым числом из {-3;3}");
+        showError(x, "X может быть любым числом из {-3;3}");
         return false;
     }
     return true;
 }
 
-function resetForm(){
+function resetForm() {
     document.getElementById("valForm").reset();
 }
 

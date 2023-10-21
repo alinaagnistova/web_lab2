@@ -17,7 +17,7 @@
     <h3>Группа: P3225</h3>
     <h3>Номер варианта:861204</h3>
     <button id="theme-toggle" class="change-theme-button">
-        <img src = "images/daynight.ico" alt="Иконка" width="25" height="25">
+        <img src="images/daynight.ico" alt="Иконка" width="25" height="25">
     </button>
 </div>
 <div class="result-table">
@@ -31,14 +31,14 @@
             <th>Текущее время</th>
             <th>Время выполнения скрипта (ms)</th>
         </tr>
-            <tr>
-                <td>${row.getX()}</td>
-                <td>${row.getY()}</td>
-                <td>${row.getR()}</td>
-                <td>${row.getResult()}</td>
-                <td>${row.getTime()}</td>
-                <td>${row.getScriptTime()}</td>
-            </tr>
+        <tr>
+            <td>${row.getX()}</td>
+            <td>${row.getY()}</td>
+            <td>${row.getR()}</td>
+            <td>${row.getResult()}</td>
+            <td>${row.getTime()}</td>
+            <td>${row.getScriptTime()}</td>
+        </tr>
     </table>
 </div>
 <button class="return-button" onclick="redirectToIndex()">Вернуться на главную</button>

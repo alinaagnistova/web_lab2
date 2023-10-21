@@ -11,9 +11,9 @@ const changeThemeToLight = () => {
 changeThemeToLight();
 themeToggle.addEventListener('click', () => {
     let theme = localStorage.getItem('data-theme');
-    if (theme ==='dark' || theme === null || theme === undefined){
+    if (theme === 'dark' || theme === null || theme === undefined) {
         changeThemeToLight();
-    }else{
+    } else {
         changeThemeToDark();
     }
 });

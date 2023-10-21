@@ -30,7 +30,7 @@
             <line x1="160" y1="0" x2="160" y2="320" stroke-width="1.6"/>
 
             <polygon id="1" points="320,160 312,156 312,164"/>
-            <polygon id="1"points="160,0 156,8 164,8"/>
+            <polygon id="1" points="160,0 156,8 164,8"/>
 
             <line x1="40" y1="156" x2="40" y2="164" stroke-width="1.6"/>
             <line x1="120" y1="156" x2="120" y2="164" stroke-width="1.6"/>
