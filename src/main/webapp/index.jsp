@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="shortcut icon" href="images/emoji.ico" type="image/x-icon"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" async></script>
 </head>
 <body>
 <div class="header">
@@ -18,7 +18,7 @@
         Агнистова Алина Юрьевна
     </h1>
     <h3>Группа: P3225</h3>
-    <h3>Номер варианта:3500</h3>
+    <h3>Номер варианта:861204</h3>
     <button id="theme-toggle" class="change-theme-button">
         <img src="images/daynight.ico" alt="Иконка" width="25" height="25">
     </button>
@@ -86,7 +86,7 @@
             <label><input type="radio" name="r" value="4">4</label>
             <label><input type="radio" name="r" value="5">5</label>
         </div>
-        <table class="buttons">
+        <table class="buttons" id="buttons-table">
             <tr>
                 <th><input type="submit" class="data-button" value="Отправить данные"></th>
                 <th><input type="reset" class="data-button" onclick="resetForm()" value="Сбросить данные"></th>
@@ -122,6 +122,6 @@
 </body>
 <script src="js/script.js"></script>
 <script src="js/themeToggle.js"></script>
-<script src="js/svgInteractive.js"></script>
+<script src="js/svgInteractive.js" defer></script>
 
 </html>

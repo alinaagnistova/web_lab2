@@ -2,7 +2,16 @@ package com.example.web_lab2.validation;
 
 import static java.lang.Math.*;
 
-public class Validator implements IValidator {
+public class Validator{
+    private final int MIN_X = -3;
+    private final int MAX_XY = 3;
+    private final int MIN_Y = -5;
+    private final int MIN_R = 1;
+    private final int MAX_R = 5;
+
+
+
+
     public Validator(float x, float y, float r) {
         this.x = x;
         this.y = y;
@@ -12,38 +21,17 @@ public class Validator implements IValidator {
     float x;
     float y;
     float r;
-    @Override
     public boolean validate() {
-            if (!(x >= -3 && x <= 3 && String.valueOf(x).length()<= 10)) {
+            if (!(x >= MIN_X && x <= MAX_XY)) {
                 return false;
             }
-            if (!(y >= -5 && y <= 3 && String.valueOf(y).length() <= 10)) {
+            if (!(y >= MIN_Y && y <= MAX_XY)) {
                 return false;
             }
-            if (!(r >= 1 && r <= 5 && String.valueOf(r).length() <= 10)) {
+            if (!(r >= MIN_R && r <= MAX_R)) {
                 return false;
             }
             return true;
         }
 
-
-    @Override
-    public boolean rectangle() {
-        return (x >= 0 && x <= r && y >= 0 && y <= r);
-    }
-
-    @Override
-    public boolean triangle() {
-        return (x <= 0 && x >= -r && y <= 0 && y >= -r);
-    }
-
-    @Override
-    public boolean circle() {
-        return (x >= 0 && y >= 0 && pow(x, 2) + pow(y, 2) <= pow(r / 2, 2));
-    }
-
-    @Override
-    public boolean checkout() {
-        return rectangle() || triangle() || circle();
-    }
 }

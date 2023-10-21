@@ -3,6 +3,8 @@ package com.example.web_lab2.beans;
 import java.beans.JavaBean;
 import java.io.Serializable;
 
+import static java.lang.Math.pow;
+
 @JavaBean
 public class RowCheckout implements Serializable {
     private static final long serialVersionUID = 2L;

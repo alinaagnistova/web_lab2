@@ -1,3 +1,4 @@
+
 document.getElementById('valForm').addEventListener('submit', function (e) {
     e.preventDefault();
     let x = document.getElementById('x');
@@ -19,7 +20,7 @@ function send(x, y, r) {
             success: function(data) {
                     window.location.replace("./result.jsp")
             },error: function (xhr, textStatus, err) {
-                console.log("readyState: " + xhr.readyState + "\n"+
+                showError(document.getElementById('buttons-table'), "readyState: " + xhr.readyState + "\n"+
                     "responseText: " + xhr.responseText + "\n"+
                     "status: " + xhr.status + "\n"+
                     "text status: " + textStatus + "\n" +
@@ -64,7 +65,7 @@ function validate(x, y, r) {
         return false;
     }
 
-    if (x1 < -3 || x1 > 3) {
+    if (x1 < MIN_X || x1 > MAX_XY) {
         showError(x,"X может быть любым числом из {-3;3}");
         return false;
     }
@@ -74,6 +75,4 @@ function validate(x, y, r) {
 function resetForm(){
     document.getElementById("valForm").reset();
 }
-function redirectToIndex() {
-    window.location.href = "index.jsp";
-}
+
